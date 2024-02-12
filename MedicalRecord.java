@@ -1,6 +1,7 @@
-package ensf380-assignment3;
+package ensf380assignment3;
 
 import java.util.regex.*;
+import java.util.Arrays;
 
 public class MedicalRecord{
     private Location location;
@@ -8,7 +9,7 @@ public class MedicalRecord{
     private String dataOfTreatment;
 
     public MedicalRecord(Location location, String treatmentDetails, String dateOfTreatment){
-        
+        Location<> checkList = 
         this.location = location;
         this.treatmentDetails = treatmentDetails;
         this.dataOfTreatment = dateOfTreatment;
