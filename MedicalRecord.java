@@ -9,12 +9,15 @@ public class MedicalRecord{
     private String dataOfTreatment;
 
     public MedicalRecord(Location location, String treatmentDetails, String dateOfTreatment){
-        Location<> checkList = 
-        this.location = location;
-        this.treatmentDetails = treatmentDetails;
-        this.dataOfTreatment = dateOfTreatment;
+        try{
+            this.location = location;
+            this.treatmentDetails = treatmentDetails;
+            this.dataOfTreatment = dateOfTreatment;
+        }
+        catch(){
+            throw new Illegal
+        }
     }
-
     public void setDataOfTreatment(String dataOfTreatment) {
         this.dataOfTreatment = dataOfTreatment;
     }
