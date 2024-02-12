@@ -1,3 +1,5 @@
+package ensf380-assignment3;
+
 import java.util.regex.*;
 
 public class MedicalRecord{
