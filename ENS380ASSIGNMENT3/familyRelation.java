@@ -1,5 +1,5 @@
 /*have to include the package contianing all classes so disaster victim can be taken as a data type */
-package ensf380_assignment3;
+package ENS380ASSIGNMENT3;
 
 public class familyRelation {
     private DisasterVictim personOne;

@@ -1,4 +1,4 @@
-package ensf380assignment3;
+package ENS380ASSIGNMENT3;
 
 import java.util.regex.*;
 import java.util.Arrays;

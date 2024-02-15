@@ -1,3 +1,4 @@
+package ENS380ASSIGNMENT3;
 public class Inquirer {
     private String firstName;
     private String lastName;
