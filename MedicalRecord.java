@@ -18,13 +18,13 @@ public class MedicalRecord{
             throw new IllegalArgumentException();
         }
     }
-    public void setDataOfTreatment(String dataOfTreatment) {
+    public void setDataOfTreatment(String dataOfTreatment) throws IllegalArgumentException{
         this.dataOfTreatment = dataOfTreatment;
     }
-    public void setLocation(Location location) {
+    public void setLocation(Location location) throws IllegalArgumentException{
         this.location = location;
     }
-    public void setTreatmentDetails(String treatmentDetails) {
+    public void setTreatmentDetails(String treatmentDetails) throws IllegalArgumentException{
         this.treatmentDetails = treatmentDetails;
     }
 
