@@ -29,15 +29,15 @@ public class familyRelation {
 
     
      /* Getters */
-    public DisasterVictim getpersonOne() {
+    public DisasterVictim getPersonOne() {
         return personOne;
     }
 
-    public String getrelationshipTo() {
+    public String getRelationshipTo() {
         return relationshipTo;
     }
 
-    public DisasterVictim getpersonTwo() {
+    public DisasterVictim getPersonTwo() {
         return personTwo;
     }
 

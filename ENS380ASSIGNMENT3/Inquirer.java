@@ -25,7 +25,7 @@ public class Inquirer {
     public String getInfo() {
         return info;
     }
-    public String getServicesPhone() {
+    public String getServicesPhoneNum() {
         return servicesPhone;
     }
     public void setFirstName(String firstName) {

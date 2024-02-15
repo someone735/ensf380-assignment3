@@ -124,11 +124,11 @@ public class DisasterVictimTest {
         DisasterVictim victim1 = new DisasterVictim("Jane", "2024-01-20");
         DisasterVictim victim2 = new DisasterVictim("John", "2024-01-22");
 
-        FamilyRelation relation = new FamilyRelation(victim2, "parent", victim1);
-        FamilyRelation[] expectedRelations = {relation};
+        familyRelation relation = new familyRelation(victim2, "parent", victim1);
+        familyRelation[] expectedRelations = {relation};
         victim2.setFamilyConnections(expectedRelations);
 
-        FamilyRelation[] testFamily = victim2.getFamilyConnections();
+        familyRelation[] testFamily = victim2.getFamilyConnections();
         boolean correct = false;
 
         if ((testFamily!=null) && (testFamily[0] == expectedRelations[0])) {
@@ -157,10 +157,10 @@ public class DisasterVictimTest {
 public void testRemoveFamilyConnection() {
         DisasterVictim victim1 = new DisasterVictim("Jane", "2024-01-20");
         DisasterVictim victim2 = new DisasterVictim("John", "2024-01-22");
-        FamilyRelation relation1 = new FamilyRelation(victim, "sibling", victim1);
-        FamilyRelation relation2 = new FamilyRelation(victim, "sibling", victim2);
-        FamilyRelation[] expectedRelations = {relation2};
-        FamilyRelation[] originalRelations = {relation1, relation2};
+        familyRelation relation1 = new familyRelation(victim, "sibling", victim1);
+        familyRelation relation2 = new familyRelation(victim, "sibling", victim2);
+        familyRelation[] expectedRelations = {relation2};
+        familyRelation[] originalRelations = {relation1, relation2};
         victim.setFamilyConnections(originalRelations);
 
         DisasterVictim victim = new DisasterVictim("Freda", "2024-01-23");
@@ -168,7 +168,7 @@ public void testRemoveFamilyConnection() {
         victim.addFamilyConnection(relation2);
         victim.removeFamilyConnection(relation1);
 
-        FamilyRelation[] testFamily = victim.getFamilyConnections();
+        familyRelation[] testFamily = victim.getFamilyConnections();
         boolean correct = true;
 
         int i;
