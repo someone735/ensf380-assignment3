@@ -1,4 +1,4 @@
-package ENS380ASSIGNMENT3;
+package edu.ucalgary.oop;
 
 public class DisasterVictim {
 	
@@ -8,12 +8,17 @@ public class DisasterVictim {
 	private String comments;
 	private int ASSIGNED_SOCIAL_ID;
 	private MedicalRecord[] medicalRecords;
-	private familyRelation[] familyRelations;
+	private FamilyRelation[] familyConnections;
 	private String ENTRY_DATE;
 	private Supply[] personalBelongings;
 	private String gender;
-	private int counter;
+	private static int counter;
 	
+	//constructor 
+	public DisasterVictim(String firstName, String ENTRY_DATE) {
+		this.firstName = firstName;
+		this.ENTRY_DATE = ENTRY_DATE;
+	}
 	
 	public String getFirstName() {
 		return firstName;
@@ -51,18 +56,21 @@ public class DisasterVictim {
 	public void setMedicalRecords(MedicalRecord[] medicalRecords) {
 		this.medicalRecords = medicalRecords;
 	}
-	public familyRelation[] getFamilyRelations() {
-		return familyRelations;
+	public FamilyRelation[] getFamilyConnections() {
+		return familyConnections;
 	}
-	public void setFamilyRelations(familyRelation[] familyRelations) {
-		this.familyRelations = familyRelations;
+	public void setFamilyConnections(FamilyRelation[] familyConnections) {
+		this.familyConnections = familyConnections;
 	}
+	
 	public String getEntryDate() {
 		return ENTRY_DATE;
 	}
+	
 	public void setEntryDate(String ENTRY_DATE) {
 		this.ENTRY_DATE = ENTRY_DATE;
 	}
+	
 	public Supply[] getPersonalBelongings() {
 		return personalBelongings;
 	}
@@ -75,11 +83,19 @@ public class DisasterVictim {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getCounter() {
-		return counter;
+	
+	public void addPersonalBelonging(Supply supply) {
+	    if (personalBelongings == null) {
+	        personalBelongings = new Supply[1];
+	        personalBelongings[0] = supply;
+	    } else {
+	        Supply[] newPersonalBelongings = new Supply[personalBelongings.length + 1];
+	        System.arraycopy(personalBelongings, 0, newPersonalBelongings, 0, personalBelongings.length);
+	        newPersonalBelongings[personalBelongings.length] = supply;
+	        personalBelongings = newPersonalBelongings;
+	    }
 	}
-	public void setCounter(int counter) {
-		this.counter = counter;
-	}
+	
+	
 	
 }
