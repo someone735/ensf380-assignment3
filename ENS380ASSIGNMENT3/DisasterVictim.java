@@ -1,5 +1,4 @@
-package edu.ucalgary.oop;
-
+package ENS380ASSIGNMENT3;
 public class DisasterVictim {
 	
 	private String firstName;
@@ -8,7 +7,7 @@ public class DisasterVictim {
 	private String comments;
 	private int ASSIGNED_SOCIAL_ID;
 	private MedicalRecord[] medicalRecords;
-	private FamilyRelation[] familyConnections;
+	private familyRelation[] familyConnections;
 	private String ENTRY_DATE;
 	private Supply[] personalBelongings;
 	private String gender;
@@ -56,10 +55,10 @@ public class DisasterVictim {
 	public void setMedicalRecords(MedicalRecord[] medicalRecords) {
 		this.medicalRecords = medicalRecords;
 	}
-	public FamilyRelation[] getFamilyConnections() {
+	public familyRelation[] getFamilyConnections() {
 		return familyConnections;
 	}
-	public void setFamilyConnections(FamilyRelation[] familyConnections) {
+	public void setFamilyConnections(familyRelation[] familyConnections) {
 		this.familyConnections = familyConnections;
 	}
 	
