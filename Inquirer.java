@@ -24,8 +24,19 @@ public class Inquirer {
     public String getInfo() {
         return info;
     }
-
     public String getServicesPhone() {
         return servicesPhone;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    public void setInfo(String info) {
+        this.info = info;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    public void setServicesPhone(String servicesPhone) {
+        this.servicesPhone = servicesPhone;
     }
 }

@@ -8,14 +8,14 @@ public class MedicalRecord{
     private String treatmentDetails;
     private String dataOfTreatment;
 
-    public MedicalRecord(Location location, String treatmentDetails, String dateOfTreatment){
+    public MedicalRecord(Location location, String treatmentDetails, String dateOfTreatment) throws IllegalArgumentException{
         try{
             this.location = location;
             this.treatmentDetails = treatmentDetails;
             this.dataOfTreatment = dateOfTreatment;
         }
-        catch(){
-            throw new Illegal
+        catch(IllegalArgumentException e){
+            throw new IllegalArgumentException();
         }
     }
     public void setDataOfTreatment(String dataOfTreatment) {
