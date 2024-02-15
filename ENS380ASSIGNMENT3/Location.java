@@ -29,8 +29,8 @@ public class Location {
     //setters
     void setName(String name) {this.name = name;}
     void setAddress(String address) {this.address = address;}
-    void setOccupants(DisasterVictim[] occupants) {this.occupants = occupants.clone();}
-    void setSupplies(Supply[] supplies) {this.supplies = supplies.clone();}
+    void setOccupants(ArrayList<DisasterVictim> occupants) {this.occupants = new ArrayList<>(occupants);}
+    void setSupplies(ArrayList<Supply> supplies) {this.supplies = new ArrayList<>(supplies);}
     //adders
     void addOccupant(DisasterVictim occupant) {
         this.occupants.add(occupant);
