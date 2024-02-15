@@ -6,8 +6,6 @@ import java.util.Arrays;
 
 import java.util.ArrayList;
 public class Location {
-    public static void main(String[] args) {
-    }
 
     //private members
     private String name;
@@ -20,6 +18,8 @@ public class Location {
     Location(String name, String address) {
         this.name = name;
         this.address = address;
+        this.occupants = new ArrayList<DisasterVictim>();
+        this.supplies = new ArrayList<Supply>();
     }
     //getters
     String getName(){ return name;}

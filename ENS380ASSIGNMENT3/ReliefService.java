@@ -1,19 +1,20 @@
+package ENS380ASSIGNMENT3;
 public class ReliefService {
 
     private Inquirer inquirer;
     private DisasterVictim MissingPerson;
-    private String dateOfInquirery;
-    private String InfoProvided;
-    private Location LastKnownLocation;
+    private String dateOfInquiry;
+    private String infoProvided;
+    private Location lastKnownLocation;
 
     //constructor
-    public ReliefService(Inquirer inquirer, DisasterVictim MissingPerson, String dateOfInquirery, String InfoProvided, Location LastKnownLocation) throws IllegalArgumentException{
+    public ReliefService(Inquirer inquirer, DisasterVictim MissingPerson, String dateOfInquiry, String InfoProvided, Location LastKnownLocation) throws IllegalArgumentException{
         try{
             this.inquirer = inquirer;
             this.MissingPerson = MissingPerson;
-            this.dateOfInquirery = dateOfInquirery;
-            this.InfoProvided = InfoProvided;
-            this.LastKnownLocation = LastKnownLocation;
+            this.dateOfInquiry = dateOfInquiry;
+            this.infoProvided = InfoProvided;
+            this.lastKnownLocation = LastKnownLocation;
         }
         catch(IllegalArgumentException e){
             throw new IllegalArgumentException();
@@ -29,34 +30,35 @@ public class ReliefService {
     }
 
     public void setdateOfInquirery (String dateOfInquirery){
-        this.dateOfInquirery = dateOfInquirery;
+        this.dateOfInquiry = dateOfInquirery;
     }
 
     public void setInfoProvided (String InfoProvided){
-        this.InfoProvided = InfoProvided;
+        this.infoProvided = InfoProvided;
     }
 
     public void setLastKnownLocation (Location LastKnownLocation){
-        this.LastKnownLocation = LastKnownLocation;
+        this.lastKnownLocation = LastKnownLocation;
     }
     
 
     // getters
-    Inquirer getInquirer() {return inquirer;}
+    Inquirer getInquirer() {return this.inquirer;}
 
-    DisasterVictim getMissingPerson(){return missingPerson;}
+    DisasterVictim getMissingPerson(){return this.MissingPerson;}
 
-    String getDateOfInquiry() {return datOfInquiry;}
+    String getDateOfInquiry() {return this.dateOfInquiry;}
 
-    String getInfoProvided() {return infoProvided;}
+    String getInfoProvided() {return this.infoProvided;}
 
-    Location getLastKnowLocation() {return lastKnownLocation;}
+    Location getLastKnowLocation() {return this.lastKnownLocation;}
     
     String getLogDetails() {
-    people = "\nInquirer: " + inquirer.getFirstName() + inquirer.getLastName + "\nMissing Person: " + missingPerson.getFirstName() + missingPerson.getLastName;
-    info = "\n Date of Inquiry: " + dateOfInquiry + "\nInfo Provided: " + infoProvided + "\nLast Known Location: " +lastKnownLocation.getName();
-    log_detail = "Log Details :\n" + people + info;
-    return log_details; }
+        String people = "\nInquirer: " + inquirer.getFirstName() + inquirer.getLastName() + "\nMissing Person: " + getMissingPerson().getFirstName() + getMissingPerson().getLastName();
+        String info = "\n Date of Inquiry: " + getDateOfInquiry() + "\nInfo Provided: " + getInfoProvided() + "\nLast Known Location: " + getLastKnowLocation().getName();
+        String log_detail = "Log Details :\n" + people + info;
+        return log_detail; 
+}
 }
 
 
