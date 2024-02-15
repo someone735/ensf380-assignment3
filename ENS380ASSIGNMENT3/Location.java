@@ -3,6 +3,8 @@ package ENS380ASSIGNMENT3;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
 import java.util.Arrays;
+
+import java.util.ArrayList;
 public class Location {
     public static void main(String[] args) {
     }
@@ -10,8 +12,8 @@ public class Location {
     //private members
     private String name;
     private String address;
-    private DisasterVictim[] occupants;
-    private Supply[] supplies;
+    private ArrayList<DisasterVictim> occupants;
+    private ArrayList<Supply> supplies;
 
     //public member functions
     //constructor
@@ -22,8 +24,8 @@ public class Location {
     //getters
     String getName(){ return name;}
     String getAddress() {return address;}
-    DisasterVictim[] getOccupants() {return occupants;}
-    Supply[] getSupplies() {return supplies;}
+    ArrayList<DisasterVictim> getOccupants() {return occupants;}
+    ArrayList<Supply> getSupplies() {return supplies;}
     //setters
     void setName(String name) {this.name = name;}
     void setAddress(String address) {this.address = address;}
@@ -31,38 +33,24 @@ public class Location {
     void setSupplies(Supply[] supplies) {this.supplies = supplies.clone();}
     //adders
     void addOccupant(DisasterVictim occupant) {
-        DisasterVictim[] temp = new DisasterVictim[this.occupants.length + 1];
-        for (int i = 0; i < this.occupants.length; i++) {
-            temp[i] = this.occupants[i];
-        }
-        temp[this.occupants.length] = occupant;
-        this.occupants = temp;
+        this.occupants.add(occupant);
     }
     void addSupply(Supply supply) {
-        Supply[] temp = new Supply[this.supplies.length + 1];
-        for (int i = 0; i < this.supplies.length; i++) {
-            temp[i] = this.supplies[i];
-        }
-        temp[this.supplies.length] = supply;
-        this.supplies = temp;
+        this.supplies.add(supply);
     }
     //removers
     void removeOccupant(DisasterVictim occupant) {
-        DisasterVictim[] temp = new DisasterVictim[this.occupants.length - 1]; //added new ...
-        for (int i = 0; i < this.occupants.length; i++) {
-            if (this.occupants[i] != occupant ){
-                temp[i] = this.occupants[i];
+        for (int i = 0; i < this.occupants.size(); i++) {
+            if (this.occupants.get(i) == occupant) {
+                occupants.remove(i);
             }
         }
-        this.occupants = temp;
     }
     void removeSupply(Supply supply) {
-        Supply[] temp = new Supply[this.supplies.length - 1]; //added new ...
-        for (int i = 0; i < this.supplies.length; i++) {
-            if (this.supplies[i] != supply ){
-                temp[i] = this.supplies[i];
+        for (int i = 0; i < this.supplies.size(); i++) {
+            if (this.supplies.get(i) == supply) {
+                supplies.remove(i);
             }
         }
-        this.supplies = temp;
     }
 }
