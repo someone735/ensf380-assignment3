@@ -6,13 +6,18 @@ public class ReliefService {
     private String InfoProvided;
     private Location LastKnownLocation;
 
-    //constructors
-    public ReliefService (Inquirer inquirer, DisasterVictim MissingPerson, String dateOfInquirery, String InfroProvided, Location LastKnownLocation){
-        this.inquirer = inquirer;
-        this.MissingPerson = MissingPerson;
-        this.dateOfInquirery = dateOfInquirery;
-        this.InfoProvided = Infoprovided;
-        this.LastKnownLocation = LastKnownLocation;
+    //constructor
+    public ReliefService(Inquirer inquirer, DisasterVictim MissingPerson, String dateOfInquirery, String InfoProvided, Location LastKnownLocation) throws IllegalArgumentException{
+        try{
+            this.inquirer = inquirer;
+            this.MissingPerson = MissingPerson;
+            this.dateOfInquirery = dateOfInquirery;
+            this.InfoProvided = InfoProvided;
+            this.LastKnownLocation = LastKnownLocation;
+        }
+        catch(IllegalArgumentException e){
+            throw new IllegalArgumentException();
+        }
     }
     //setters
     public void setinquirer (Inquirer inquirer){
@@ -53,3 +58,5 @@ public class ReliefService {
     log_detail = "Log Details :\n" + people + info;
     return log_details; }
 }
+
+
