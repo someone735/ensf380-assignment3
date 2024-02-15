@@ -108,7 +108,7 @@ public class DisasterVictim {
             familyConnections = new familyRelation[1];
             familyConnections[0] = familyConnection;
         } else {
-            FamilyRelation[] newFamilyConnections = new FamilyRelation[familyConnections.length + 1];
+            familyRelation[] newFamilyConnections = new familyRelation[familyConnections.length + 1];
             System.arraycopy(familyConnections, 0, newFamilyConnections, 0, familyConnections.length);
             newFamilyConnections[familyConnections.length] = familyConnection;
             familyConnections = newFamilyConnections;
@@ -116,7 +116,7 @@ public class DisasterVictim {
     }
     
     // Function to remove a family connection
-    public void removeFamilyConnection(FamilyRelation familyConnection) throws IllegalArgumentException {
+    public void removeFamilyConnection(familyRelation familyConnection) throws IllegalArgumentException {
         
         if (familyConnections != null) {
             for (int i = 0; i < familyConnections.length; i++) {
@@ -133,7 +133,7 @@ public class DisasterVictim {
         if (index < 0 || index >= familyConnections.length) {
             return;
         }
-        FamilyRelation[] newArray = new FamilyRelation[familyConnections.length - 1];
+        familyRelation[] newArray = new familyRelation[familyConnections.length - 1];
         for (int i = 0, j = 0; i < familyConnections.length; i++) {
             if (i != index) {
                 newArray[j++] = familyConnections[i];
