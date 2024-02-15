@@ -1,4 +1,4 @@
-package edu.ucalgary.oop;
+package ENS380ASSIGNMENT3;
 
 public class DisasterVictim {
 	
@@ -8,7 +8,7 @@ public class DisasterVictim {
 	private String comments;
 	private int ASSIGNED_SOCIAL_ID;
 	private MedicalRecord[] medicalRecords;
-	private FamilyRelation[] familyRelations;
+	private familyRelation[] familyRelations;
 	private String ENTRY_DATE;
 	private Supply[] personalBelongings;
 	private String gender;
@@ -51,10 +51,10 @@ public class DisasterVictim {
 	public void setMedicalRecords(MedicalRecord[] medicalRecords) {
 		this.medicalRecords = medicalRecords;
 	}
-	public FamilyRelation[] getFamilyRelations() {
+	public familyRelation[] getFamilyRelations() {
 		return familyRelations;
 	}
-	public void setFamilyRelations(FamilyRelation[] familyRelations) {
+	public void setFamilyRelations(familyRelation[] familyRelations) {
 		this.familyRelations = familyRelations;
 	}
 	public String getEntryDate() {

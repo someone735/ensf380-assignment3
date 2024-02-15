@@ -7,7 +7,7 @@ public class familyRelation {
     private DisasterVictim personTwo;
 
     /*constructor */
-    public familyRelation (DisasterVictim personOne, String relationshipTo, DisasterVcitim personTwo){
+    public familyRelation (DisasterVictim personOne, String relationshipTo, DisasterVictim personTwo){
         this.personOne = personOne;
         this.relationshipTo = relationshipTo;
         this.personTwo = personTwo;
@@ -15,7 +15,7 @@ public class familyRelation {
 
     /*setters */
 
-    public void setPersonOne (DisasterVcitim personOne){
+    public void setPersonOne (DisasterVictim personOne){
         this.personOne = personOne;
     }
 
@@ -23,7 +23,7 @@ public class familyRelation {
         this.relationshipTo = relationshipTo;
     }
 
-    public void setPersonTwo (DisasterVcitim person){
+    public void setPersonTwo (DisasterVictim personTwo){
         this.personTwo = personTwo;
     }
 
