@@ -13,17 +13,81 @@ public class MedicalRecord{
     private String dateOfTreatment;
 
     public MedicalRecord(Location location, String treatmentDetails, String dateOfTreatment) throws IllegalArgumentException{
-            this.location = location;
-            this.treatmentDetails = treatmentDetails;
-            this.dateOfTreatment = dateOfTreatment;
-    }
-    public void setDateOfTreatment(String dateOfTreatment) throws IllegalArgumentException{
-        for (int i = 0; i < dateOfTreatment.length(); i++){
-            char c = dateOfTreatment.charAt(i);
-            if ((c != '-') && (!Character.isDigit(c))){
+        this.location = location;
+        this.treatmentDetails = treatmentDetails;
+        //checks proper dash placement
+        if (dateOfTreatment.charAt(4) != '-' || dateOfTreatment.charAt(7) != '-')
+            throw new IllegalArgumentException("invalid date format " + dateOfTreatment);
+        //checks year is digits
+        for(int j = 0; j <4; j++) {
+            char c = dateOfTreatment.charAt(j);
+            if (!Character.isDigit(c))
                 throw new IllegalArgumentException("invalid date format " + dateOfTreatment);
-            }
         }
+        //checks month is digits
+        for(int j = 5; j <7; j++) {
+            char c = dateOfTreatment.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+        }
+        //checks day is digits
+        for(int j = 8; j < 10; j++) {
+            char c = dateOfTreatment.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+        }
+        //day check
+        int a = Character.getNumericValue(dateOfTreatment.charAt(8));
+        int b = Character.getNumericValue(dateOfTreatment.charAt(9));
+        if (a > 3 || a < 0 || b < 0 || b > 9) {
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+        }
+        if (a == 3 && (b > 1))
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+
+        //month check
+        int c = Character.getNumericValue(dateOfTreatment.charAt(5));
+        int d = Character.getNumericValue(dateOfTreatment.charAt(6));
+        if(c < 0 || c >1 || d <0 || d > 2)
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+        this.dateOfTreatment = dateOfTreatment;
+        }
+    public void setDateOfTreatment(String dateOfTreatment) throws IllegalArgumentException{
+        //checks proper dash placement
+        if (dateOfTreatment.charAt(4) != '-' || dateOfTreatment.charAt(7) != '-')
+            throw new IllegalArgumentException("invalid date format " + dateOfTreatment);
+        //checks year is digits
+        for(int j = 0; j <4; j++) {
+            char c = dateOfTreatment.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("invalid date format " + dateOfTreatment);
+        }
+        //checks month is digits
+        for(int j = 5; j <7; j++) {
+            char c = dateOfTreatment.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+        }
+        //checks day is digits
+        for(int j = 8; j < 10; j++) {
+            char c = dateOfTreatment.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+        }
+        //day check
+        int a = Character.getNumericValue(dateOfTreatment.charAt(8));
+        int b = Character.getNumericValue(dateOfTreatment.charAt(9));
+        if (a > 3 || a < 0 || b < 0 || b > 9) {
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+        }
+        if (a == 3 && (b > 1))
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+
+        //month check
+        int c = Character.getNumericValue(dateOfTreatment.charAt(5));
+        int d = Character.getNumericValue(dateOfTreatment.charAt(6));
+        if(c < 0 || c >1 || d <0 || d > 2)
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
         this.dateOfTreatment = dateOfTreatment;
     }
     public void setLocation(Location location) throws IllegalArgumentException{

@@ -17,12 +17,41 @@ public class DisasterVictim {
     public DisasterVictim(String firstName, String ENTRY_DATE) {
         this.firstName = firstName;
         // added code
-        for (int i = 0; i < ENTRY_DATE.length(); i++){
-            char c = ENTRY_DATE.charAt(i);
-            if ((c != '-') && (!Character.isDigit(c))){
+        //checks proper dash placement
+        if (ENTRY_DATE.charAt(4) != '-' || ENTRY_DATE.charAt(7) != '-')
+            throw new IllegalArgumentException("invalid date format " + ENTRY_DATE);
+        //checks year is digits
+        for(int j = 0; j <4; j++) {
+            char c = ENTRY_DATE.charAt(j);
+            if (!Character.isDigit(c))
                 throw new IllegalArgumentException("invalid date format " + ENTRY_DATE);
-            }
         }
+        //checks month is digits
+        for(int j = 5; j <7; j++) {
+            char c = ENTRY_DATE.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("invalid date format or invalid date " + ENTRY_DATE);
+        }
+        //checks day is digits
+        for(int j = 8; j < 10; j++) {
+            char c = ENTRY_DATE.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("invalid date format or invalid date " + ENTRY_DATE);
+        }
+        //day check
+        int a = Character.getNumericValue(ENTRY_DATE.charAt(8));
+        int b = Character.getNumericValue(ENTRY_DATE.charAt(9));
+        if (a > 3 || a < 0 || b < 0 || b > 9) {
+            throw new IllegalArgumentException("invalid date format or invalid date " + ENTRY_DATE);
+        }
+        if (a == 3 && (b > 1))
+            throw new IllegalArgumentException("invalid date format or invalid date " + ENTRY_DATE);
+
+        //month check
+        int c = Character.getNumericValue(ENTRY_DATE.charAt(5));
+        int d = Character.getNumericValue(ENTRY_DATE.charAt(6));
+        if(c < 0 || c >1 || d <0 || d > 2)
+            throw new IllegalArgumentException("invalid date format or invalid date " + ENTRY_DATE);
         this.ENTRY_DATE = ENTRY_DATE;
         // addded code
         this.ASSIGNED_SOCIAL_ID = counter;
@@ -53,12 +82,41 @@ public class DisasterVictim {
     }
 
     public void setDateOfBirth(String dateOfBirth) throws IllegalArgumentException {
-        for (int i = 0; i < dateOfBirth.length(); i++){
-            char c = dateOfBirth.charAt(i);
-            if ((c != '-') && (!Character.isDigit(c))){
+        //checks proper dash placement
+        if (dateOfBirth.charAt(4) != '-' || dateOfBirth.charAt(7) != '-')
+            throw new IllegalArgumentException("invalid date format " + dateOfBirth);
+        //checks year is digits
+        for(int j = 0; j <4; j++) {
+            char c = dateOfBirth.charAt(j);
+            if (!Character.isDigit(c))
                 throw new IllegalArgumentException("invalid date format " + dateOfBirth);
-            }
         }
+        //checks month is digits
+        for(int j = 5; j <7; j++) {
+            char c = dateOfBirth.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("invalid date format or invalid date " + dateOfBirth);
+        }
+        //checks day is digits
+        for(int j = 8; j < 10; j++) {
+            char c = dateOfBirth.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("invalid date format or invalid date " + dateOfBirth);
+        }
+        //day check
+        int a = Character.getNumericValue(dateOfBirth.charAt(8));
+        int b = Character.getNumericValue(dateOfBirth.charAt(9));
+        if (a > 3 || a < 0 || b < 0 || b > 9) {
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfBirth);
+        }
+        if (a == 3 && (b > 1))
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfBirth);
+
+        //month check
+        int c = Character.getNumericValue(dateOfBirth.charAt(5));
+        int d = Character.getNumericValue(dateOfBirth.charAt(6));
+        if(c < 0 || c >1 || d <0 || d > 2)
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfBirth);
         this.dateOfBirth = dateOfBirth;
     }
 
