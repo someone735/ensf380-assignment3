@@ -6,35 +6,43 @@ import java.util.Arrays;
 public class MedicalRecord{
     private Location location;
     private String treatmentDetails;
-    private String dataOfTreatment;
+    private String dateOfTreatment;
 
     public MedicalRecord(Location location, String treatmentDetails, String dateOfTreatment) throws IllegalArgumentException{
-        try{
             this.location = location;
             this.treatmentDetails = treatmentDetails;
-            this.dataOfTreatment = dateOfTreatment;
-        }
-        catch(IllegalArgumentException e){
-            throw new IllegalArgumentException();
-        }
+            this.dateOfTreatment = dateOfTreatment;
     }
-    public void setDataOfTreatment(String dataOfTreatment) throws IllegalArgumentException{
-        this.dataOfTreatment = dataOfTreatment;
+    public void setDateOfTreatment(String dateOfTreatment) throws IllegalArgumentException{
+        this.dateOfTreatment = dateOfTreatment;
     }
     public void setLocation(Location location) throws IllegalArgumentException{
         this.location = location;
     }
     public void setTreatmentDetails(String treatmentDetails) throws IllegalArgumentException{
-        this.treatmentDetails = treatmentDetails;
+        String[] check = treatmentDetails.split("-");
+        if (check[0].length() != treatmentDetails.length()){
+            for (int i = 0; i < check.length; i++){
+                for (int j = 0; i < check.length; i++){
+                    char c = check[i].charAt(j);
+                    if (!(Character.isDigit(c))){
+                        throw new IllegalArgumentException();
+                    }
+                }
+            }
+            this.treatmentDetails = treatmentDetails;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public String getDataOfTreatment() {
-        return dataOfTreatment;
+        return this.dateOfTreatment;
     
     }public Location getLocation() {
-        return location;
+        return this.location;
     }
     public String getTreatmentDetails() {
-        return treatmentDetails;
+        return this.treatmentDetails;
     }
 }
