@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class DisasterVictimTest {
     private DisasterVictim victim;
     private List<Supply> suppliesToSet; 
-    private List<familyRelation> familyRelations; 
+    private List<FamilyRelation> FamilyRelations; 
     private String expectedFirstName = "Freda";
     private String EXPECTED_ENTRY_DATE = "2024-01-18";
     private String validDate = "2024-01-15";
@@ -124,11 +124,11 @@ public class DisasterVictimTest {
         DisasterVictim victim1 = new DisasterVictim("Jane", "2024-01-20");
         DisasterVictim victim2 = new DisasterVictim("John", "2024-01-22");
 
-        familyRelation relation = new familyRelation(victim2, "parent", victim1);
-        familyRelation[] expectedRelations = {relation};
+        FamilyRelation relation = new FamilyRelation(victim2, "parent", victim1);
+        FamilyRelation[] expectedRelations = {relation};
         victim2.setFamilyConnections(expectedRelations);
 
-        familyRelation[] testFamily = victim2.getFamilyConnections();
+        FamilyRelation[] testFamily = victim2.getFamilyConnections();
         boolean correct = false;
 
         if ((testFamily!=null) && (testFamily[0] == expectedRelations[0])) {
@@ -157,10 +157,10 @@ public class DisasterVictimTest {
 public void testRemoveFamilyConnection() {
         DisasterVictim victim1 = new DisasterVictim("Jane", "2024-01-20");
         DisasterVictim victim2 = new DisasterVictim("John", "2024-01-22");
-        familyRelation relation1 = new familyRelation(victim, "sibling", victim1);
-        familyRelation relation2 = new familyRelation(victim, "sibling", victim2);
-        familyRelation[] expectedRelations = {relation2};
-        familyRelation[] originalRelations = {relation1, relation2};
+        FamilyRelation relation1 = new FamilyRelation(victim, "sibling", victim1);
+        FamilyRelation relation2 = new FamilyRelation(victim, "sibling", victim2);
+        FamilyRelation[] expectedRelations = {relation2};
+        FamilyRelation[] originalRelations = {relation1, relation2};
         victim.setFamilyConnections(originalRelations);
 
         DisasterVictim victim = new DisasterVictim("Freda", "2024-01-23");
@@ -168,7 +168,7 @@ public void testRemoveFamilyConnection() {
         victim.addFamilyConnection(relation2);
         victim.removeFamilyConnection(relation1);
 
-        familyRelation[] testFamily = victim.getFamilyConnections();
+        FamilyRelation[] testFamily = victim.getFamilyConnections();
         boolean correct = true;
 
         int i;
@@ -205,13 +205,13 @@ public void testRemovePersonalBelonging() {
         DisasterVictim victim1 = new DisasterVictim("Jane", "2024-01-20");
         DisasterVictim victim2 = new DisasterVictim("John", "2024-01-22");
 
-        familyRelation relation = new familyRelation(victim1, "sibling", victim2);
-        familyRelation[] expectedRelations = {relation};
+        FamilyRelation relation = new FamilyRelation(victim1, "sibling", victim2);
+        FamilyRelation[] expectedRelations = {relation};
         victim1.setFamilyConnections(expectedRelations);
         boolean correct = true;
 
        // We have not studied overriding equals in arrays of custom objects so we will manually evaluate equality
-       familyRelation[] actualRecords = victim1.getFamilyConnections();
+       FamilyRelation[] actualRecords = victim1.getFamilyConnections();
        if (expectedRelations.length != actualRecords.length) {
            correct = false;
        } else {    

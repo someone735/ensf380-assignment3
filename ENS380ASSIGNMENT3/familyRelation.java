@@ -1,13 +1,13 @@
 /*have to include the package contianing all classes so disaster victim can be taken as a data type */
 package ENS380ASSIGNMENT3;
 
-public class familyRelation {
+public class FamilyRelation {
     private DisasterVictim personOne;
     private String relationshipTo;
     private DisasterVictim personTwo;
 
     /*constructor */
-    public familyRelation (DisasterVictim personOne, String relationshipTo, DisasterVictim personTwo){
+    public FamilyRelation (DisasterVictim personOne, String relationshipTo, DisasterVictim personTwo){
         this.personOne = personOne;
         this.relationshipTo = relationshipTo;
         this.personTwo = personTwo;

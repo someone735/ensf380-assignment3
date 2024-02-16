@@ -14,7 +14,7 @@ public class FamilyRelationTest {
     private DisasterVictim personOne = new DisasterVictim("John Dalan", "2024-01-19");
     private DisasterVictim personTwo = new DisasterVictim("Jane Dalan", "2024-02-20");
     private String relationshipTo = "sibling";
-    private familyRelation testFamilyRelationObject = new familyRelation(personOne, relationshipTo, personTwo);
+    private FamilyRelation testFamilyRelationObject = new FamilyRelation(personOne, relationshipTo, personTwo);
     
     @Test
     public void testObjectCreation() {

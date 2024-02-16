@@ -7,7 +7,7 @@ public class DisasterVictim {
     private String comments;
     private int ASSIGNED_SOCIAL_ID;
     private MedicalRecord[] medicalRecords;
-    private familyRelation[] familyConnections;
+    private FamilyRelation[] familyConnections;
     private String ENTRY_DATE;
     private Supply[] personalBelongings;
     private String gender;
@@ -69,11 +69,11 @@ public class DisasterVictim {
         this.medicalRecords = medicalRecords;
     }
 
-    public familyRelation[] getFamilyConnections() {
+    public FamilyRelation[] getFamilyConnections() {
         return familyConnections;
     }
 
-    public void setFamilyConnections(familyRelation[] familyConnections) throws IllegalArgumentException {
+    public void setFamilyConnections(FamilyRelation[] familyConnections) throws IllegalArgumentException {
         this.familyConnections = familyConnections;
     }
 
@@ -102,13 +102,13 @@ public class DisasterVictim {
     }
     
     // Function to add a family connection
-    public void addFamilyConnections(familyRelation familyConnection) throws IllegalArgumentException {
+    public void addFamilyConnections(FamilyRelation familyConnection) throws IllegalArgumentException {
         
         if (familyConnections == null) {
-            familyConnections = new familyRelation[1];
+            familyConnections = new FamilyRelation[1];
             familyConnections[0] = familyConnection;
         } else {
-            familyRelation[] newFamilyConnections = new familyRelation[familyConnections.length + 1];
+            FamilyRelation[] newFamilyConnections = new FamilyRelation[familyConnections.length + 1];
             System.arraycopy(familyConnections, 0, newFamilyConnections, 0, familyConnections.length);
             newFamilyConnections[familyConnections.length] = familyConnection;
             familyConnections = newFamilyConnections;
@@ -116,7 +116,7 @@ public class DisasterVictim {
     }
     
     // Function to remove a family connection
-    public void removeFamilyConnection(familyRelation familyConnection) throws IllegalArgumentException {
+    public void removeFamilyConnection(FamilyRelation familyConnection) throws IllegalArgumentException {
         
         if (familyConnections != null) {
             for (int i = 0; i < familyConnections.length; i++) {
@@ -133,7 +133,7 @@ public class DisasterVictim {
         if (index < 0 || index >= familyConnections.length) {
             return;
         }
-        familyRelation[] newArray = new familyRelation[familyConnections.length - 1];
+        FamilyRelation[] newArray = new FamilyRelation[familyConnections.length - 1];
         for (int i = 0, j = 0; i < familyConnections.length; i++) {
             if (i != index) {
                 newArray[j++] = familyConnections[i];
