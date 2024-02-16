@@ -3,8 +3,6 @@ package ENS380ASSIGNMENT3;
 import java.util.regex.*;
 import java.util.Arrays;
 
-
-
 import java.lang.Character;
 
 public class MedicalRecord{
