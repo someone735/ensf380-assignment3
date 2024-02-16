@@ -42,7 +42,7 @@ public class ReliefService {
             throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
         //checks year
         for(int j = 0; j <4; j++) {
-        if (!Character.isDigit(j))
+        if (!Character.isDigit(dateOfInquiry.charAt(j)))
             throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
         }
         //checks month
