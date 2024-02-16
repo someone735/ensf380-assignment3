@@ -14,7 +14,7 @@ public class MedicalRecord{
         this.location = location;
         this.treatmentDetails = treatmentDetails;
         //checks proper dash placement
-        if (dateOfTreatment.charAt(4) != '-' || dateOfTreatment.charAt(7) != '-')
+        if (dateOfTreatment.charAt(4) != '-' || dateOfTreatment.charAt(7) != '-' || dateOfTreatment.length() != 10)
             throw new IllegalArgumentException("invalid date format " + dateOfTreatment);
         //checks year is digits
         for(int j = 0; j <4; j++) {
@@ -59,7 +59,7 @@ public class MedicalRecord{
         }
     public void setDateOfTreatment(String dateOfTreatment) throws IllegalArgumentException{
         //checks proper dash placement
-        if (dateOfTreatment.charAt(4) != '-' || dateOfTreatment.charAt(7) != '-')
+        if (dateOfTreatment.charAt(4) != '-' || dateOfTreatment.charAt(7) != '-' || dateOfTreatment.length() != 10)
             throw new IllegalArgumentException("invalid date format " + dateOfTreatment);
         //checks year is digits
         for(int j = 0; j <4; j++) {

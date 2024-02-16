@@ -18,7 +18,7 @@ public class DisasterVictim {
         this.firstName = firstName;
         // added code
         //checks proper dash placement
-        if (ENTRY_DATE.charAt(4) != '-' || ENTRY_DATE.charAt(7) != '-')
+        if (ENTRY_DATE.charAt(4) != '-' || ENTRY_DATE.charAt(7) != '-' || ENTRY_DATE.length() != 10)
             throw new IllegalArgumentException("invalid date format " + ENTRY_DATE);
         //checks year is digits
         for(int j = 0; j <4; j++) {
@@ -90,7 +90,7 @@ public class DisasterVictim {
 
     public void setDateOfBirth(String dateOfBirth) throws IllegalArgumentException {
         //checks proper dash placement
-        if (dateOfBirth.charAt(4) != '-' || dateOfBirth.charAt(7) != '-')
+        if (dateOfBirth.charAt(4) != '-' || dateOfBirth.charAt(7) != '-' || dateOfBirth.length() != 10)
             throw new IllegalArgumentException("invalid date format " + dateOfBirth);
         //checks year is digits
         for(int j = 0; j <4; j++) {

@@ -38,7 +38,7 @@ public class ReliefService {
             }
         }*/
         //checks proper dash placement
-        if (dateOfInquiry.charAt(4) != '-' || dateOfInquiry.charAt(7) != '-')
+        if (dateOfInquiry.charAt(4) != '-' || dateOfInquiry.charAt(7) != '-' || dateOfInquiry.length() != 10)
             throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
         //checks year is digits
         for(int j = 0; j <4; j++) {
