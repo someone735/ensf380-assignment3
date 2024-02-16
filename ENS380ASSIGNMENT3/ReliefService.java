@@ -21,7 +21,7 @@ public class ReliefService {
         }
     }
     //setters
-    public void setinquirer (Inquirer inquirer){
+    public void setInquirer (Inquirer inquirer){
         this.inquirer = inquirer;
     }
 
@@ -29,12 +29,33 @@ public class ReliefService {
         this.MissingPerson = MissingPerson;
     }
 
-    public void setdateOfInquiry (String dateOfInquiry){
-        for (int i = 0; i < dateOfInquiry.length(); i++){
+    public void setDateOfInquiry (String dateOfInquiry){
+        //checks that they're either digit or dash
+        /*for (int i = 0; i < dateOfInquiry.length(); i++){
             char c = dateOfInquiry.charAt(i);
             if ((c != '-') && (!Character.isDigit(c))){
                 throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
             }
+        }*/
+        //checks proper dash placement
+        if (dateOfInquiry.charAt(4) != '-' || dateOfInquiry.charAt(7) != '-')
+            throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
+        //checks year
+        for(int j = 0; j <4; j++) {
+        if (!Character.isDigit(j))
+            throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
+        }
+        //checks month
+        for(int j = 5; j <7; j++) {
+            char c = dateOfInquiry.charAt(j);
+            if (!Character.isDigit(c) || Character.getNumericValue(c) >12 || Character.getNumericValue(c) <= 0)
+                throw new IllegalArgumentException("invalid date format or invalid date " + dateOfInquiry);
+        }
+        //checks day
+        for(int j = 8; j < 10; j++) {
+            char c = dateOfInquiry.charAt(j);
+            if (!Character.isDigit(c) || Character.getNumericValue(c) >31 || Character.getNumericValue(c) <= 0)
+                throw new IllegalArgumentException("invalid date format or invalid date " + dateOfInquiry);
         }
         this.dateOfInquiry = dateOfInquiry;
     }
