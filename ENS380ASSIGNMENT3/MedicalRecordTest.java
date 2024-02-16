@@ -49,14 +49,14 @@ public class MedicalRecordTest {
 
     @Test
     public void testGetDateOfTreatment() {
-    assertEquals("getDateOfTreatment should return the correct date of treatment", expectedDateOfTreatment, medicalRecord.getDataOfTreatment());
+    assertEquals("getDateOfTreatment should return the correct date of treatment", expectedDateOfTreatment, medicalRecord.getDateOfTreatment());
     }
 	
 	@Test
     public void testSetDateOfTreatment() {
 	String newExpectedDateOfTreatment = "2024-02-05";
 	medicalRecord.setDateOfTreatment(newExpectedDateOfTreatment);
-    assertEquals("setDateOfTreatment should update date of treatment", newExpectedDateOfTreatment, medicalRecord.getDataOfTreatment());
+    assertEquals("setDateOfTreatment should update date of treatment", newExpectedDateOfTreatment, medicalRecord.getDateOfTreatment());
     }
 	@Test
     public void testSetDateOfTreatmentWithValidFormat() {
