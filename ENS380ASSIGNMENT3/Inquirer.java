@@ -6,7 +6,7 @@ public class Inquirer {
     private String servicesPhone;
 
     /* Constructor */
-    public Inquirer(String firstName, String lastName, String info, String servicesPhone) {
+    public Inquirer(String firstName, String lastName, String servicesPhone, String info) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.info = info;
