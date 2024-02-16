@@ -60,13 +60,13 @@ public class ReliefServiceTest {
 
     @Test
     public void testSetDateOfInquiryWithValidDate() {
-        reliefService.setDateOfInquiry(validDate);
+        reliefService.setdateOfInquiry(validDate);
         assertEquals("Setting a valid date should update the date of inquiry", validDate, reliefService.getDateOfInquiry());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void testSetDateOfInquiryWithInvalidDate() {
-        reliefService.setDateOfInquiry(invalidDate); // This should throw IllegalArgumentException due to invalid format
+        reliefService.setdateOfInquiry(invalidDate); // This should throw IllegalArgumentException due to invalid format
     }
 
     @Test

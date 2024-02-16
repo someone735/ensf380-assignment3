@@ -29,7 +29,7 @@ public class ReliefService {
         this.MissingPerson = MissingPerson;
     }
 
-    public void setdateOfInquirery (String dateOfInquirery){
+    public void setdateOfInquiry (String dateOfInquirery){
         this.dateOfInquiry = dateOfInquirery;
     }
 
@@ -51,11 +51,11 @@ public class ReliefService {
 
     String getInfoProvided() {return this.infoProvided;}
 
-    Location getLastKnowLocation() {return this.lastKnownLocation;}
+    Location getLastKnownLocation() {return this.lastKnownLocation;}
     
     String getLogDetails() {
-        String people = "\nInquirer: " + inquirer.getFirstName() + inquirer.getLastName() + "\nMissing Person: " + getMissingPerson().getFirstName() + getMissingPerson().getLastName();
-        String info = "\n Date of Inquiry: " + getDateOfInquiry() + "\nInfo Provided: " + getInfoProvided() + "\nLast Known Location: " + getLastKnowLocation().getName();
+        String people = "\nInquirer: " + this.inquirer.getFirstName() + this.inquirer.getLastName() + "\nMissing Person: " + this.MissingPerson.getFirstName() + this.MissingPerson.getLastName();
+        String info = "\n Date of Inquiry: " + this.dateOfInquiry + "\nInfo Provided: " + this.infoProvided + "\nLast Known Location: " + this.lastKnownLocation.getName();
         String log_detail = "Log Details :\n" + people + info;
         return log_detail; 
 }
