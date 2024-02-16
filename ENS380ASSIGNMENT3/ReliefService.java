@@ -40,23 +40,38 @@ public class ReliefService {
         //checks proper dash placement
         if (dateOfInquiry.charAt(4) != '-' || dateOfInquiry.charAt(7) != '-')
             throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
-        //checks year
+        //checks year is digits
         for(int j = 0; j <4; j++) {
-        if (!Character.isDigit(j))
+        char c = dateOfInquiry.charAt(j);
+        if (!Character.isDigit(c))
             throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
         }
-        //checks month
+        //checks month is digits
         for(int j = 5; j <7; j++) {
             char c = dateOfInquiry.charAt(j);
-            if (!Character.isDigit(c) || Character.getNumericValue(c) >12 || Character.getNumericValue(c) <= 0)
+            if (!Character.isDigit(c))
                 throw new IllegalArgumentException("invalid date format or invalid date " + dateOfInquiry);
         }
-        //checks day
+        //checks day is digits
         for(int j = 8; j < 10; j++) {
             char c = dateOfInquiry.charAt(j);
-            if (!Character.isDigit(c) || Character.getNumericValue(c) >31 || Character.getNumericValue(c) <= 0)
+            if (!Character.isDigit(c))
                 throw new IllegalArgumentException("invalid date format or invalid date " + dateOfInquiry);
         }
+        //day check
+        int a = Character.getNumericValue(dateOfInquiry.charAt(8));
+        int b = Character.getNumericValue(dateOfInquiry.charAt(9));
+        if (a > 3 || a < 0 || b < 0 || b > 9) {
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfInquiry);
+        }
+        if (a == 3 && (b > 1))
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfInquiry);
+
+        //month check
+        int c = Character.getNumericValue(dateOfInquiry.charAt(5));
+        int d = Character.getNumericValue(dateOfInquiry.charAt(6));
+        if(c < 0 || c >1 || d <0 || d > 2)
+            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfInquiry);
         this.dateOfInquiry = dateOfInquiry;
     }
 
@@ -84,8 +99,9 @@ public class ReliefService {
         String people = "Inquirer: " + this.inquirer.getFirstName() + ", Missing Person: " + this.MissingPerson.getFirstName();
         String info = ", Date of Inquiry: " + this.dateOfInquiry + ", Info Provided: " + this.infoProvided + ", Last Known Location: " + this.lastKnownLocation.getName();
         String log_detail = people + info;
-        return log_detail; 
-}
+        return log_detail;
+    }
+
 }
 
 
