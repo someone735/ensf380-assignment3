@@ -42,13 +42,9 @@ public class ReliefService {
             throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
         //checks year is digits
         for(int j = 0; j <4; j++) {
-<<<<<<< HEAD
-        char c = dateOfInquiry.charAt(j);
-        if (!Character.isDigit(c))
-=======
-        if (!Character.isDigit(dateOfInquiry.charAt(j)))
->>>>>>> 4082bf16bcef2e3af3bdf0ec1e94e3a2d4546a17
-            throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
+            char c = dateOfInquiry.charAt(j);
+            if (!Character.isDigit(c))
+                throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
         }
         //checks month is digits
         for(int j = 5; j <7; j++) {
@@ -86,7 +82,7 @@ public class ReliefService {
     public void setLastKnownLocation (Location LastKnownLocation){
         this.lastKnownLocation = LastKnownLocation;
     }
-    
+
 
     // getters
     Inquirer getInquirer() {return this.inquirer;}
@@ -98,14 +94,14 @@ public class ReliefService {
     String getInfoProvided() {return this.infoProvided;}
 
     Location getLastKnownLocation() {return this.lastKnownLocation;}
-    
+
     String getLogDetails() {
         String people = "Inquirer: " + this.inquirer.getFirstName() + ", Missing Person: " + this.MissingPerson.getFirstName();
         String info = ", Date of Inquiry: " + this.dateOfInquiry + ", Info Provided: " + this.infoProvided + ", Last Known Location: " + this.lastKnownLocation.getName();
         String log_detail = people + info;
         return log_detail;
     }
-
 }
+
 
 
