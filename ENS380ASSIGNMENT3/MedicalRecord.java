@@ -33,7 +33,7 @@ public class MedicalRecord{
         this.treatmentDetails = treatmentDetails;
     }
 
-    public String getDataOfTreatment() {
+    public String getDateOfTreatment() {
         return this.dateOfTreatment;
     
     }public Location getLocation() {
