@@ -11,12 +11,23 @@ public class DisasterVictim {
     private String ENTRY_DATE;
     private Supply[] personalBelongings;
     private String gender;
-    private static int counter;
+    private static int counter = 0;
     
     // Constructor
     public DisasterVictim(String firstName, String ENTRY_DATE) {
         this.firstName = firstName;
+        // added code
+        for (int i = 0; i < ENTRY_DATE.length(); i++){
+            char c = ENTRY_DATE.charAt(i);
+            if ((c != '-') && (!Character.isDigit(c))){
+                throw new IllegalArgumentException("invalid date format " + ENTRY_DATE);
+            }
+        }
         this.ENTRY_DATE = ENTRY_DATE;
+        // addded code
+        this.ASSIGNED_SOCIAL_ID = counter;
+        counter++;
+
     }
     
     // Getter and Setter methods
@@ -42,6 +53,12 @@ public class DisasterVictim {
     }
 
     public void setDateOfBirth(String dateOfBirth) throws IllegalArgumentException {
+        for (int i = 0; i < dateOfBirth.length(); i++){
+            char c = dateOfBirth.charAt(i);
+            if ((c != '-') && (!Character.isDigit(c))){
+                throw new IllegalArgumentException("invalid date format " + dateOfBirth);
+            }
+        }
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -102,7 +119,7 @@ public class DisasterVictim {
     }
     
     // Function to add a family connection
-    public void addFamilyConnections(FamilyRelation familyConnection) throws IllegalArgumentException {
+    public void addFamilyConnection(FamilyRelation familyConnection) throws IllegalArgumentException {
         
         if (familyConnections == null) {
             familyConnections = new FamilyRelation[1];

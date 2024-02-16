@@ -29,8 +29,14 @@ public class ReliefService {
         this.MissingPerson = MissingPerson;
     }
 
-    public void setdateOfInquiry (String dateOfInquirery){
-        this.dateOfInquiry = dateOfInquirery;
+    public void setdateOfInquiry (String dateOfInquiry){
+        for (int i = 0; i < dateOfInquiry.length(); i++){
+            char c = dateOfInquiry.charAt(i);
+            if ((c != '-') && (!Character.isDigit(c))){
+                throw new IllegalArgumentException("invalid date format " + dateOfInquiry);
+            }
+        }
+        this.dateOfInquiry = dateOfInquiry;
     }
 
     public void setInfoProvided (String InfoProvided){
@@ -54,9 +60,9 @@ public class ReliefService {
     Location getLastKnownLocation() {return this.lastKnownLocation;}
     
     String getLogDetails() {
-        String people = "\nInquirer: " + this.inquirer.getFirstName() + this.inquirer.getLastName() + "\nMissing Person: " + this.MissingPerson.getFirstName() + this.MissingPerson.getLastName();
-        String info = "\n Date of Inquiry: " + this.dateOfInquiry + "\nInfo Provided: " + this.infoProvided + "\nLast Known Location: " + this.lastKnownLocation.getName();
-        String log_detail = "Log Details :\n" + people + info;
+        String people = "Inquirer: " + this.inquirer.getFirstName() + ", Missing Person: " + this.MissingPerson.getFirstName();
+        String info = ", Date of Inquiry: " + this.dateOfInquiry + ", Info Provided: " + this.infoProvided + ", Last Known Location: " + this.lastKnownLocation.getName();
+        String log_detail = people + info;
         return log_detail; 
 }
 }
