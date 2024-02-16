@@ -14,7 +14,7 @@ public class MedicalRecordTest {
     private String expectedTreatmentDetails = "Broken arm treated";
     private String expectedDateOfTreatment = "2024-01-19";
     private String validDateOfTreatment = "2024-02-04";
-    private String inValidDateOfTreatment = "2024/02/04";
+    private String inValidDateOfTreatment = "2024-02/04";
     MedicalRecord medicalRecord = new MedicalRecord(expectedLocation, expectedTreatmentDetails, expectedDateOfTreatment);
 
 

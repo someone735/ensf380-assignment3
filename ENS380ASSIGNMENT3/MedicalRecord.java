@@ -14,26 +14,27 @@ public class MedicalRecord{
             this.dateOfTreatment = dateOfTreatment;
     }
     public void setDateOfTreatment(String dateOfTreatment) throws IllegalArgumentException{
-        this.dateOfTreatment = dateOfTreatment;
+        String[] check = dateOfTreatment.split("-");
+        if (dateOfTreatment.length() != check[0].length()){
+            for (int i = 0; i < check.length; i++){
+                for (int j = 0; i < check[i].length(); i++){
+                    char c = check[i].charAt(j);
+                    System.err.println();
+                    if ((Character.isDigit(c)) == false){
+                        throw new IllegalArgumentException("invalid date format" + dateOfTreatment);
+                    }
+                }
+            }
+            this.dateOfTreatment = dateOfTreatment;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
     public void setLocation(Location location) throws IllegalArgumentException{
         this.location = location;
     }
     public void setTreatmentDetails(String treatmentDetails) throws IllegalArgumentException{
-        String[] check = treatmentDetails.split("-");
-        if (check[0].length() != treatmentDetails.length()){
-            for (int i = 0; i < check.length; i++){
-                for (int j = 0; i < check.length; i++){
-                    char c = check[i].charAt(j);
-                    if (!(Character.isDigit(c))){
-                        throw new IllegalArgumentException();
-                    }
-                }
-            }
-            this.treatmentDetails = treatmentDetails;
-        } else {
-            throw new IllegalArgumentException();
-        }
+        this.treatmentDetails = treatmentDetails;
     }
 
     public String getDataOfTreatment() {
@@ -46,3 +47,5 @@ public class MedicalRecord{
         return this.treatmentDetails;
     }
 }
+
+void 
