@@ -46,8 +46,15 @@ public class MedicalRecord{
         //month check
         int c = Character.getNumericValue(dateOfTreatment.charAt(5));
         int d = Character.getNumericValue(dateOfTreatment.charAt(6));
-        if(c < 0 || c >1 || d <0 || d > 2)
-            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+        if (c == 1){
+            if(d < 0 || d > 2){
+                throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+            }
+        } else if (c==0){
+            if(d < 0 || d > 9){
+                throw new IllegalArgumentException("invalid date format or invalid date " + dateOfTreatment);
+            }
+        }
         this.dateOfTreatment = dateOfTreatment;
         }
     public void setDateOfTreatment(String dateOfTreatment) throws IllegalArgumentException{

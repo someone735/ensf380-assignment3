@@ -50,8 +50,15 @@ public class DisasterVictim {
         //month check
         int c = Character.getNumericValue(ENTRY_DATE.charAt(5));
         int d = Character.getNumericValue(ENTRY_DATE.charAt(6));
-        if(c < 0 || c >1 || d <0 || d > 2)
-            throw new IllegalArgumentException("invalid date format or invalid date " + ENTRY_DATE);
+        if (c == 1){
+            if(d < 0 || d > 2){
+                throw new IllegalArgumentException("invalid date format or invalid date " + ENTRY_DATE);
+            }
+        } else if (c==0){
+            if(d < 0 || d > 9){
+                throw new IllegalArgumentException("invalid date format or invalid date " + ENTRY_DATE);
+            }
+        }
         this.ENTRY_DATE = ENTRY_DATE;
         // addded code
         this.ASSIGNED_SOCIAL_ID = counter;
@@ -115,8 +122,15 @@ public class DisasterVictim {
         //month check
         int c = Character.getNumericValue(dateOfBirth.charAt(5));
         int d = Character.getNumericValue(dateOfBirth.charAt(6));
-        if(c < 0 || c >1 || d <0 || d > 2)
-            throw new IllegalArgumentException("invalid date format or invalid date " + dateOfBirth);
+        if (c == 1){
+            if(d < 0 || d > 2){
+                throw new IllegalArgumentException("invalid date format or invalid date " + ENTRY_DATE);
+            }
+        } else if (c==0){
+            if(d < 0 || d > 9){
+                throw new IllegalArgumentException("invalid date format or invalid date " + ENTRY_DATE);
+            }
+        }        
         this.dateOfBirth = dateOfBirth;
     }
 

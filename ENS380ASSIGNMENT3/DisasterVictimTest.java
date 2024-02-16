@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class DisasterVictimTest {
     private DisasterVictim victim;
     private List<Supply> suppliesToSet; 
-    private List<FamilyRelation> FamilyRelations; 
+    private List<FamilyRelation> familyRelations; 
     private String expectedFirstName = "Freda";
     private String EXPECTED_ENTRY_DATE = "2024-01-18";
     private String validDate = "2024-01-15";
