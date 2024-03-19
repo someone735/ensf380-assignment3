@@ -1,4 +1,9 @@
 package ENS380ASSIGNMENT3;
+
+import java.util.Iterator;
+import java.util.Set;
+import java.util.Vector;
+
 public class DisasterVictim {
     
     private String firstName;
@@ -6,10 +11,10 @@ public class DisasterVictim {
     private String dateOfBirth;
     private String comments;
     private int ASSIGNED_SOCIAL_ID;
-    private MedicalRecord[] medicalRecords;
-    private FamilyRelation[] familyConnections;
+    private Vector<MedicalRecord> medicalRecords;
+    private Set<FamilyRelation> familyConnections;
     private String ENTRY_DATE;
-    private Supply[] personalBelongings;
+    private Vector<Supply> personalBelongings;
     private String gender;
     private static int counter = 0;
     
@@ -150,19 +155,19 @@ public class DisasterVictim {
         this.ASSIGNED_SOCIAL_ID = ASSIGNED_SOCIAL_ID;
     }
 
-    public MedicalRecord[] getMedicalRecords() {
+    public Vector<MedicalRecord> getMedicalRecords() {
         return medicalRecords;
     }
 
-    public void setMedicalRecords(MedicalRecord[] medicalRecords) throws IllegalArgumentException {
+    public void setMedicalRecords(Vector<MedicalRecord> medicalRecords) throws IllegalArgumentException {
         this.medicalRecords = medicalRecords;
     }
 
-    public FamilyRelation[] getFamilyConnections() {
+    public Set<FamilyRelation> getFamilyConnections() {
         return familyConnections;
     }
 
-    public void setFamilyConnections(FamilyRelation[] familyConnections) throws IllegalArgumentException {
+    public void setFamilyConnections(Set<FamilyRelation> familyConnections) throws IllegalArgumentException {
         this.familyConnections = familyConnections;
     }
 
@@ -174,11 +179,11 @@ public class DisasterVictim {
         this.ENTRY_DATE = ENTRY_DATE;
     }
 
-    public Supply[] getPersonalBelongings() {
+    public Vector<Supply> getPersonalBelongings() {
         return personalBelongings;
     }
 
-    public void setPersonalBelongings(Supply[] personalBelongings) throws IllegalArgumentException {
+    public void setPersonalBelongings(Vector<Supply> personalBelongings) throws IllegalArgumentException {
         this.personalBelongings = personalBelongings;
     }
 
@@ -192,43 +197,23 @@ public class DisasterVictim {
     
     // Function to add a family connection
     public void addFamilyConnection(FamilyRelation familyConnection) throws IllegalArgumentException {
-        
-        if (familyConnections == null) {
-            familyConnections = new FamilyRelation[1];
-            familyConnections[0] = familyConnection;
-        } else {
-            FamilyRelation[] newFamilyConnections = new FamilyRelation[familyConnections.length + 1];
-            System.arraycopy(familyConnections, 0, newFamilyConnections, 0, familyConnections.length);
-            newFamilyConnections[familyConnections.length] = familyConnection;
-            familyConnections = newFamilyConnections;
-        }
+        familyConnections.add(familyConnection);
     }
     
     // Function to remove a family connection
     public void removeFamilyConnection(FamilyRelation familyConnection) throws IllegalArgumentException {
-        
-        if (familyConnections != null) {
-            for (int i = 0; i < familyConnections.length; i++) {
-                if (familyConnections[i].equals(familyConnection)) {
-                    removeFamilyConnectionAtIndex(i);
-                    break;
-                }
-            }
-        }
+        familyConnections.remove(familyConnection);
     }
 
     // Helper function to remove a family connection at a specific index
     private void removeFamilyConnectionAtIndex(int index) {
-        if (index < 0 || index >= familyConnections.length) {
-            return;
-        }
-        FamilyRelation[] newArray = new FamilyRelation[familyConnections.length - 1];
-        for (int i = 0, j = 0; i < familyConnections.length; i++) {
-            if (i != index) {
-                newArray[j++] = familyConnections[i];
+        Iterator<FamilyRelation> FCiterator = familyConnections.iterator();
+        int counter = 0;
+        while (FCiterator.hasNext()){
+            if (counter == index){
+                FCiterator.remove();
             }
         }
-        familyConnections = newArray;
     }
     
     // Function to add a medical record

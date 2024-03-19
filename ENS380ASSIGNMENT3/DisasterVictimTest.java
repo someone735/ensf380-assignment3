@@ -10,13 +10,14 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.List;
+import java.util.Set;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DisasterVictimTest {
     private DisasterVictim victim;
     private List<Supply> suppliesToSet; 
-    private List<FamilyRelation> familyRelations; 
+    private Set<FamilyRelation> familyRelations; 
     private String expectedFirstName = "Freda";
     private String EXPECTED_ENTRY_DATE = "2024-01-18";
     private String validDate = "2024-01-15";
